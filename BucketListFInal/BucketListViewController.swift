@@ -8,7 +8,27 @@
 
 import UIKit
 
-class BucketListViewController: UITableViewController {
+class BucketListViewController: UITableViewController, CancelButtonDelegate, MissionDetailsViewControllerDelegate {
+    
+    func cancelButtonPressedFrom(controller: UIViewController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "AddNewMission" {
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let controller = navigationController.topViewController as! MissionDetailsViewController
+            controller.cancelButtonDelegate = self
+            controller.delegate = self
+        }
+    }
+    
+    func missionDetailsViewController(controller: MissionDetailsViewController, didFinishAddingMission mission: String) {
+        dismissViewControllerAnimated(true, completion: nil)
+        missions.append(mission)
+        tableView.reloadData()
+    }
+    
     var missions = ["a", "b"]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +44,6 @@ class BucketListViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
