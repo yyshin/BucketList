@@ -46,6 +46,9 @@ class BucketListViewController: UITableViewController, CancelButtonDelegate, Mis
     }
 
     func missionDetailsViewController(controller: MissionDetailsViewController, didFinishEditingMission mission: String, atIndexPath indexPath: Int) {
+        dismissViewControllerAnimated(true, completion: nil)
+        missions[indexPath] = mission
+        tableView.reloadData()
     }
 
     var missions = ["a", "b"]
@@ -59,15 +62,12 @@ class BucketListViewController: UITableViewController, CancelButtonDelegate, Mis
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return missions.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // dequeue the cell from our storyboard
         let cell = tableView.dequeueReusableCellWithIdentifier("MissionCell")!
         cell.textLabel?.text = missions[indexPath.row]
-        // return cell so that Table View knows what to draw in each row
         return cell
     }
     
