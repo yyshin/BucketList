@@ -26,6 +26,10 @@ class MissionDetailsViewController: UITableViewController {
     @IBOutlet weak var newMissionTextField: UITextField!
     weak var delegate: MissionDetailsViewControllerDelegate?
     
+    override func viewWillAppear(animated: Bool) {
+        newMissionTextField.text = missionToEdit
+    }
+    
     var missionToEdit: String?
     var missionToEditIndexPath: Int?
 

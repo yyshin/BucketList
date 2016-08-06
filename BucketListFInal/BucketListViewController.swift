@@ -32,8 +32,10 @@ class BucketListViewController: UITableViewController, CancelButtonDelegate, Mis
             controller.delegate = self
             
             if let indexPath = tableView.indexPathForCell(sender as! UITableViewCell) {
-                controller.missionToEdit = missions[indexPath.row]
+                let text = missions[indexPath.row]
+                controller.missionToEdit = text
                 controller.missionToEditIndexPath = indexPath.row
+
             }
         }
     }
@@ -43,23 +45,17 @@ class BucketListViewController: UITableViewController, CancelButtonDelegate, Mis
         tableView.reloadData()
     }
 
-    func missionDetailsViewController(controller: MissionDetailsViewController, didFinishEditingMission mission: String ,atIndexPath indexPath: Int) {
+    func missionDetailsViewController(controller: MissionDetailsViewController, didFinishEditingMission mission: String, atIndexPath indexPath: Int) {
     }
 
     var missions = ["a", "b"]
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,7 +66,6 @@ class BucketListViewController: UITableViewController, CancelButtonDelegate, Mis
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // dequeue the cell from our storyboard
         let cell = tableView.dequeueReusableCellWithIdentifier("MissionCell")!
-        // All UITableViewCell objects have a build in textLabel so set it to the model that is corresponding to the row in array
         cell.textLabel?.text = missions[indexPath.row]
         // return cell so that Table View knows what to draw in each row
         return cell
