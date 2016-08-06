@@ -82,9 +82,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="jed-wI-uin">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="DDu-CO-3rE"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="OlK-76-sGZ"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="DDu-CO-3rE">
+                            <connections>
+                                <action selector="cancelBarButtonPressed:" destination="cZx-sc-AKO" id="LXg-Co-I6t"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="OlK-76-sGZ">
+                            <connections>
+                                <action selector="doneBarButtonPressed:" destination="cZx-sc-AKO" id="qEy-yH-7a4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="newMissionTextField" destination="jHr-2p-vrc" id="IJB-vU-hBg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qW-X1-W7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
