@@ -13,7 +13,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ylk-1a-dxg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.60421144569999996" blue="0.54810055800000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="MissionCell" id="T9r-Js-0uL" userLabel="MissionCell">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
@@ -22,6 +22,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="533" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="0.60421144569956853" blue="0.54810055800314395" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -29,7 +30,7 @@
                             <outlet property="delegate" destination="TWq-Kf-lno" id="XjI-CX-hCV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Bucket List" id="QVP-XT-Q3k">
+                    <navigationItem key="navigationItem" title="Bucket List" id="QVP-XT-Q3k" colorLabel="IBBuiltInLabel-Orange">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FYn-hA-8cu">
                             <connections>
                                 <segue destination="K5i-uN-od6" kind="presentation" identifier="AddNewMission" id="5S2-7L-JhE"/>
