@@ -10,6 +10,7 @@ import UIKit
 
 class BucketListViewController: UITableViewController, CancelButtonDelegate, MissionDetailsViewControllerDelegate {
     
+    
     func cancelButtonPressedFrom(controller: UIViewController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -54,7 +55,18 @@ class BucketListViewController: UITableViewController, CancelButtonDelegate, Mis
     var missions = ["a", "b"]
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.editing = true
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
         
+    }
+    
+    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        let movedObject = self.missions[sourceIndexPath.row]
+        missions.removeAtIndex(sourceIndexPath.row)
+        missions.insert(movedObject, atIndex: destinationIndexPath.row)
+        NSLog("%@", "\(sourceIndexPath.row) => \(destinationIndexPath.row) \(missions)")
+        // To check for correctness enable: self.tableView.reloadData()
+        self.tableView.reloadData()
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

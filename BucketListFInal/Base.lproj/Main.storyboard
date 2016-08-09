@@ -31,6 +31,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Bucket List" id="QVP-XT-Q3k" colorLabel="IBBuiltInLabel-Orange">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="efq-HA-Yu0"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FYn-hA-8cu">
                             <connections>
                                 <segue destination="K5i-uN-od6" kind="presentation" identifier="AddNewMission" id="5S2-7L-JhE"/>
