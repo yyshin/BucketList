@@ -52,7 +52,7 @@ class BucketListViewController: UITableViewController, CancelButtonDelegate, Mis
         tableView.reloadData()
     }
 
-    var missions = ["a", "b"]
+    var missions = ["Sky Diving", "Mount Everest"]
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.editing = true
